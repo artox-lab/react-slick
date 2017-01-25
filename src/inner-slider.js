@@ -73,6 +73,7 @@ export var InnerSlider = React.createClass({
       const domNode = this.track.getDOMNode();
       domNode.style.transform = nextState.trackStyle.transform;
       domNode.style.opacity = nextState.trackStyle.opacity;
+      domNode.style.transition = nextState.trackStyle.transition;
       return false;
     }
     return true;
