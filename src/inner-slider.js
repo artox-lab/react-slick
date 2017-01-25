@@ -75,6 +75,7 @@ export var InnerSlider = React.createClass({
       this.track.style.transition = nextState.trackStyle.transition;
       return false;
     }
+    return true;
   },
   componentWillUnmount: function componentWillUnmount() {
     if (this.animationEndCallback) {

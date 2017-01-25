@@ -307,6 +307,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.track.style.transition = nextState.trackStyle.transition;
 	      return false;
 	    }
+	    return true;
 	  },
 
 	  componentWillUnmount: function componentWillUnmount() {
