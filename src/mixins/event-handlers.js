@@ -311,7 +311,7 @@ var EventHandlers = {
     }
     if (this.isSwipe) {
       console.log('wefwef');
-      e.stopPropagation();
+      e.preventDefault();
       return false;
     }
   },

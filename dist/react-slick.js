@@ -828,7 +828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    if (this.isSwipe) {
 	      console.log('wefwef');
-	      e.stopPropagation();
+	      e.preventDefault();
 	      return false;
 	    }
 	  },
