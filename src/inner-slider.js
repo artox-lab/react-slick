@@ -70,9 +70,10 @@ export var InnerSlider = React.createClass({
   shouldComponentUpdate(nextProps, nextState) {
     if(nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide &&
       nextState.trackStyle !==  this.state.trackStyle) {
-      this.track.style.transform = nextState.trackStyle.transform;
-      this.track.style.opacity = nextState.trackStyle.opacity;
-      this.track.style.transition = nextState.trackStyle.transition;
+      const domNode = this.track.getDOMNode();
+      domNode.style.transform = nextState.trackStyle.transform;
+      domNode.style.opacity = nextState.trackStyle.opacity;
+      domNode.style.transition = nextState.trackStyle.transition;
       return false;
     }
     return true;
