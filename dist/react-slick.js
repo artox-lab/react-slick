@@ -1791,6 +1791,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Track = exports.Track = _react2.default.createClass({
 	  displayName: 'Track',
+	  shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
+	    if (nextProps.children === this.props.children && this.props.trackStyle !== nextProps.trackStyle && nextProps.currentSlide === this.props.currentSlide) {
+	      return false;
+	    }
+	  },
 
 	  render: function render() {
 	    var slides = renderSlides.call(this, this.props);

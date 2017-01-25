@@ -141,6 +141,12 @@ var renderSlides = function (spec) {
 };
 
 export var Track = React.createClass({
+  shouldComponentUpdate(nextProps, nextState) {
+      if (nextProps.children === this.props.children && this.props.trackStyle !== nextProps.trackStyle &&
+          nextProps.currentSlide === this.props.currentSlide) {
+        return false;
+      }
+  },
   render: function () {
     var slides = renderSlides.call(this, this.props);
     return (
