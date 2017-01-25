@@ -68,14 +68,14 @@ export var InnerSlider = React.createClass({
 
   // елси пришел только обдейт стилей трека но изменяем на живом доме для скорости и исключения пропедаливания
   shouldComponentUpdate(nextProps, nextState) {
-    if(nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide &&
-      nextState.trackStyle !==  this.state.trackStyle) {
-      const domNode = this.track.getDOMNode();
-      domNode.style.transform = nextState.trackStyle.transform;
-      domNode.style.opacity = nextState.trackStyle.opacity;
-      domNode.style.transition = nextState.trackStyle.transition;
-      return false;
-    }
+    // if(nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide &&
+    //   nextState.trackStyle !==  this.state.trackStyle) {
+    //   const domNode = this.track.getDOMNode();
+    //   domNode.style.transform = nextState.trackStyle.transform;
+    //   domNode.style.opacity = nextState.trackStyle.opacity;
+    //   domNode.style.transition = nextState.trackStyle.transition;
+    //   return false;
+    // }
     return true;
   },
   componentWillUnmount: function componentWillUnmount() {
