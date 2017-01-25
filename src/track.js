@@ -140,13 +140,15 @@ var renderSlides = function (spec) {
 
 export var Track = React.createClass({
   shouldComponentUpdate(nextProps, nextState) {
-      if (nextProps.slides === this.props.slides) {
-        this.track.style.transform = nextProps.trackStyle.transform;
-        this.track.style.opacity = nextProps.trackStyle.opacity;
-        this.track.style.transition = nextProps.trackStyle.transition;
-        return false;
-      }
-      return true;
+    if (nextProps.trackStyle) {
+      this.track.style.transform = nextProps.trackStyle.transform;
+      this.track.style.opacity = nextProps.trackStyle.opacity;
+      this.track.style.transition = nextProps.trackStyle.transition;
+    }
+    if (nextProps.slides === this.props.slides && nextProps.childStyle ===  this.props.childStyle) {
+      return false;
+    }
+    return true;
   },
   render: function () {
     var slides = renderSlides.call(this, this.props);
