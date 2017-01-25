@@ -912,6 +912,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var getTrackAnimateCSS = exports.getTrackAnimateCSS = function getTrackAnimateCSS(spec) {
+	  console.log('getTrackAnimateCSS');
 	  checkSpecKeys(spec, ['left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth', 'speed', 'cssEase']);
 
 	  var style = getTrackCSS(spec);
