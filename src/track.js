@@ -140,7 +140,6 @@ var renderSlides = function (spec) {
 
 export var Track = React.createClass({
   render: function () {
-    console.log('render Track;');
     var slides = renderSlides.call(this, this.props);
     return (
       <div className='slick-track' style={this.props.trackStyle}>

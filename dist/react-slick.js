@@ -1805,7 +1805,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  displayName: 'Track',
 
 	  render: function render() {
-	    console.log('render Track;');
 	    var slides = renderSlides.call(this, this.props);
 	    return _react2.default.createElement(
 	      'div',
