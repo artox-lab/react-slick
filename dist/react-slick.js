@@ -585,6 +585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    } else if (this.props.draggable === false && e.type.indexOf('mouse') !== -1) {
 	      return;
 	    }
+	    this.isSwipe = false;
 	    posX = e.touches !== undefined ? e.touches[0].pageX : e.clientX;
 	    posY = e.touches !== undefined ? e.touches[0].pageY : e.clientY;
 	    this.setState({
@@ -608,6 +609,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.vertical && this.props.swipeToSlide && this.props.verticalSwiping) {
 	      e.preventDefault();
 	    }
+	    this.isSwipe = true;
 	    var swipeLeft;
 	    var curLeft, positionOffset;
 	    var touchObject = this.state.touchObject;
@@ -763,6 +765,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var minSwipe = this.state.listWidth / this.props.touchThreshold;
 	    var swipeDirection = this.swipeDirection(touchObject);
 
+	    if (this.isSwipe) {
+	      alert('wefwefwe');
+	    }
+
 	    if (this.props.verticalSwiping) {
 	      minSwipe = this.state.listHeight / this.props.touchThreshold;
 	    }
@@ -912,7 +918,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var getTrackAnimateCSS = exports.getTrackAnimateCSS = function getTrackAnimateCSS(spec) {
-	  console.log('getTrackAnimateCSS');
 	  checkSpecKeys(spec, ['left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth', 'speed', 'cssEase']);
 
 	  var style = getTrackCSS(spec);

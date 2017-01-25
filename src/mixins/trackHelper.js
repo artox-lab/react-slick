@@ -59,7 +59,6 @@ export var getTrackCSS = function(spec) {
 };
 
 export var getTrackAnimateCSS = function (spec) {
-    console.log('getTrackAnimateCSS');
   checkSpecKeys(spec, [
     'left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth', 'speed', 'cssEase'
   ]);
