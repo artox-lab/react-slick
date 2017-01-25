@@ -146,6 +146,7 @@ export var Track = React.createClass({
           nextProps.currentSlide === this.props.currentSlide) {
         return false;
       }
+    return true;
   },
   render: function () {
     var slides = renderSlides.call(this, this.props);

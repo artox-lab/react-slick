@@ -1795,6 +1795,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (nextProps.children === this.props.children && this.props.trackStyle !== nextProps.trackStyle && nextProps.currentSlide === this.props.currentSlide) {
 	      return false;
 	    }
+	    return true;
 	  },
 
 	  render: function render() {
