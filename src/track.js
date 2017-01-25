@@ -136,22 +136,19 @@ var renderSlides = function (spec) {
   } else {
     return preCloneSlides.concat(slides, postCloneSlides);
   }
-
-
 };
 
 export var Track = React.createClass({
   shouldComponentUpdate(nextProps, nextState) {
-      if (nextProps.children === this.props.children && this.props.trackStyle !== nextProps.trackStyle &&
-          nextProps.currentSlide === this.props.currentSlide) {
-        return false;
+      if (this.props.trackStyle !== nextProps.trackStyle && nextProps.trackStyle.transform) {
+        this.track.style.transform = nextProps.trackStyle.transform;
       }
     return true;
   },
   render: function () {
     var slides = renderSlides.call(this, this.props);
     return (
-      <div className='slick-track' style={this.props.trackStyle}>
+      <div ref={c => this.track = c} className='slick-track' style={this.props.trackStyle}>
         { slides }
       </div>
     );
