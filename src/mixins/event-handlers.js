@@ -309,10 +309,10 @@ var EventHandlers = {
         trackStyle: getTrackAnimateCSS(assign({left: currentLeft}, this.props, this.state))
       });
     }
+  },
+  onClick: function(e) {
     if (this.isSwipe) {
-      console.log('wefwef');
       e.preventDefault();
-      return false;
     }
   },
   onInnerSliderEnter: function (e) {

@@ -237,6 +237,7 @@ export var InnerSlider = React.createClass({
           onMouseDown={this.swipeStart}
           onMouseMove={this.state.dragging ? this.swipeMove: null}
           onMouseUp={this.swipeEnd}
+          onClick={this.onClick}
           onMouseLeave={this.state.dragging ? this.swipeEnd: null}
           onTouchStart={this.swipeStart}
           onTouchMove={this.state.dragging ? this.swipeMove: null}

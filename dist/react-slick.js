@@ -473,6 +473,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onMouseDown: this.swipeStart,
 	          onMouseMove: this.state.dragging ? this.swipeMove : null,
 	          onMouseUp: this.swipeEnd,
+	          onClick: this.onClick,
 	          onMouseLeave: this.state.dragging ? this.swipeEnd : null,
 	          onTouchStart: this.swipeStart,
 	          onTouchMove: this.state.dragging ? this.swipeMove : null,
@@ -826,10 +827,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state))
 	      });
 	    }
+	  },
+	  onClick: function onClick(e) {
 	    if (this.isSwipe) {
-	      console.log('wefwef');
 	      e.preventDefault();
-	      return false;
 	    }
 	  },
 	  onInnerSliderEnter: function onInnerSliderEnter(e) {
