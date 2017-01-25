@@ -93,10 +93,12 @@ var EventHandlers = {
     if (this.props.vertical && this.props.swipeToSlide && this.props.verticalSwiping) {
       e.preventDefault();
     }
-    this.isSwipe = true;
+
     var swipeLeft;
     var curLeft, positionOffset;
     var touchObject = this.state.touchObject;
+
+    this.isSwipe = true;
 
     curLeft = getTrackLeft(assign({
       slideIndex: this.state.currentSlide,
@@ -108,6 +110,10 @@ var EventHandlers = {
 
     if (this.props.verticalSwiping) {
       touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
+    }
+
+    if (touchObject.swipeLength < 5) {
+      this.isSwipe = true;
     }
 
     positionOffset = (this.props.rtl === false ? 1 : -1) * (touchObject.curX > touchObject.startX ? 1 : -1);
@@ -247,7 +253,9 @@ var EventHandlers = {
     var swipeDirection = this.swipeDirection(touchObject);
 
     if (this.isSwipe) {
-      alert('wefwefwe');
+      e.preventDefault();
+      console.log('wefwef');
+      //e.stopPropagation();
     }
 
     if (this.props.verticalSwiping) {

@@ -609,10 +609,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.vertical && this.props.swipeToSlide && this.props.verticalSwiping) {
 	      e.preventDefault();
 	    }
-	    this.isSwipe = true;
+
 	    var swipeLeft;
 	    var curLeft, positionOffset;
 	    var touchObject = this.state.touchObject;
+
+	    this.isSwipe = true;
 
 	    curLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
 	      slideIndex: this.state.currentSlide,
@@ -624,6 +626,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    if (this.props.verticalSwiping) {
 	      touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
+	    }
+
+	    if (touchObject.swipeLength < 5) {
+	      this.isSwipe = true;
 	    }
 
 	    positionOffset = (this.props.rtl === false ? 1 : -1) * (touchObject.curX > touchObject.startX ? 1 : -1);
@@ -766,7 +772,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var swipeDirection = this.swipeDirection(touchObject);
 
 	    if (this.isSwipe) {
-	      alert('wefwefwe');
+	      e.preventDefault();
+	      console.log('wefwef');
+	      //e.stopPropagation();
 	    }
 
 	    if (this.props.verticalSwiping) {
