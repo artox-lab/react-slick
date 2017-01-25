@@ -301,10 +301,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // елси пришел только обдейт стилей трека но изменяем на живом доме для скорости и исключения пропедаливания
 	  shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
-	    if (nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide && nextState.trackStyle !== this.state.trackStyle && !domNode.style.transition) {
-	      var _domNode = this.track.getDOMNode();
-	      _domNode.style.transform = nextState.trackStyle.transform;
-	      _domNode.style.opacity = nextState.trackStyle.opacity;
+	    if (nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide && nextState.trackStyle !== this.state.trackStyle && !nextState.trackStyle.transition) {
+	      var domNode = this.track.getDOMNode();
+	      domNode.style.transform = nextState.trackStyle.transform;
+	      domNode.style.opacity = nextState.trackStyle.opacity;
 	      return false;
 	    }
 	    return true;
