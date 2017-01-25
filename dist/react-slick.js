@@ -772,9 +772,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var swipeDirection = this.swipeDirection(touchObject);
 
 	    if (this.isSwipe) {
-	      e.preventDefault();
 	      console.log('wefwef');
-	      //e.stopPropagation();
+	      e.stopPropagation();
 	    }
 
 	    if (this.props.verticalSwiping) {
