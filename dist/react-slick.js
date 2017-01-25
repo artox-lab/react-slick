@@ -298,6 +298,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	      window.attachEvent('onresize', this.onWindowResized);
 	    }
 	  },
+
+	  // елси пришел только обдейт стилей трека но изменяем на живом доме для скорости и исключения пропедаливания
+	  shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
+	    if (nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide && nextState.trackStyle !== this.state.trackStyle) {
+	      this.track.style.transform = nextState.trackStyle.transform;
+	      this.track.style.opacity = nextState.trackStyle.opacity;
+	      this.track.style.transition = nextState.trackStyle.transition;
+	      return false;
+	    }
+	  },
+
 	  componentWillUnmount: function componentWillUnmount() {
 	    if (this.animationEndCallback) {
 	      clearTimeout(this.animationEndCallback);
@@ -1791,24 +1802,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Track = exports.Track = _react2.default.createClass({
 	  displayName: 'Track',
-	  shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
-	    if (nextProps.trackStyle) {
-	      this.track.style.transform = nextProps.trackStyle.transform;
-	      this.track.style.opacity = nextProps.trackStyle.opacity;
-	      this.track.style.transition = nextProps.trackStyle.transition;
-	    }
-	    return true;
-	  },
 
 	  render: function render() {
-	    var _this = this;
-
 	    var slides = renderSlides.call(this, this.props);
 	    return _react2.default.createElement(
 	      'div',
-	      { ref: function ref(c) {
-	          return _this.track = c;
-	        }, className: 'slick-track', style: this.props.trackStyle },
+	      { className: 'slick-track', style: this.props.trackStyle },
 	      slides
 	    );
 	  }

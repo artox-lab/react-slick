@@ -139,18 +139,10 @@ var renderSlides = function (spec) {
 };
 
 export var Track = React.createClass({
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.trackStyle) {
-      this.track.style.transform = nextProps.trackStyle.transform;
-      this.track.style.opacity = nextProps.trackStyle.opacity;
-      this.track.style.transition = nextProps.trackStyle.transition;
-    }
-    return true;
-  },
   render: function () {
     var slides = renderSlides.call(this, this.props);
     return (
-      <div ref={c => this.track = c} className='slick-track' style={this.props.trackStyle}>
+      <div className='slick-track' style={this.props.trackStyle}>
         { slides }
       </div>
     );
