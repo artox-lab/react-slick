@@ -252,10 +252,7 @@ var EventHandlers = {
     var minSwipe = this.state.listWidth/this.props.touchThreshold;
     var swipeDirection = this.swipeDirection(touchObject);
 
-    if (this.isSwipe) {
-      console.log('wefwef');
-      e.stopPropagation();
-    }
+
 
     if (this.props.verticalSwiping) {
       minSwipe = this.state.listHeight/this.props.touchThreshold;
@@ -311,6 +308,11 @@ var EventHandlers = {
       this.setState({
         trackStyle: getTrackAnimateCSS(assign({left: currentLeft}, this.props, this.state))
       });
+    }
+    if (this.isSwipe) {
+      console.log('wefwef');
+      e.stopPropagation();
+      return false;
     }
   },
   onInnerSliderEnter: function (e) {

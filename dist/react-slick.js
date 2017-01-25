@@ -771,11 +771,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var minSwipe = this.state.listWidth / this.props.touchThreshold;
 	    var swipeDirection = this.swipeDirection(touchObject);
 
-	    if (this.isSwipe) {
-	      console.log('wefwef');
-	      e.stopPropagation();
-	    }
-
 	    if (this.props.verticalSwiping) {
 	      minSwipe = this.state.listHeight / this.props.touchThreshold;
 	    }
@@ -830,6 +825,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.setState({
 	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state))
 	      });
+	    }
+	    if (this.isSwipe) {
+	      console.log('wefwef');
+	      e.stopPropagation();
+	      return false;
 	    }
 	  },
 	  onInnerSliderEnter: function onInnerSliderEnter(e) {
