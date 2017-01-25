@@ -145,9 +145,6 @@ export var Track = React.createClass({
       this.track.style.opacity = nextProps.trackStyle.opacity;
       this.track.style.transition = nextProps.trackStyle.transition;
     }
-    if (nextProps.slides === this.props.slides && nextProps.childStyle ===  this.props.childStyle) {
-      return false;
-    }
     return true;
   },
   render: function () {
