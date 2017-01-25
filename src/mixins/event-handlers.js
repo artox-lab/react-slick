@@ -112,7 +112,7 @@ var EventHandlers = {
       touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
     }
 
-    if (touchObject.swipeLength < 5) {
+    if (touchObject.swipeLength < 10) {
       this.isSwipe = true;
     }
 
