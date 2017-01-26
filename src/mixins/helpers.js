@@ -279,7 +279,7 @@ var helpers = {
         currentSlide: currentSlide,
         trackStyle: getTrackAnimateCSS(assign({left: targetLeft}, this.props, this.state))
       }, function () {
-        this.animationEndCallback = setTimeout(callback, this.props.speed);
+       // this.animationEndCallback = setTimeout(callback, this.props.speed);
       });
 
     }
