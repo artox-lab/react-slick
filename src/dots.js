@@ -52,6 +52,8 @@ export var Dots = React.createClass({
       );
     });
 
+    if (dots.length <= 1) return null;
+
     return (
       <ul className={this.props.dotsClass} style={{display: 'block'}}>
         {dots}

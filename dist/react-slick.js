@@ -1885,6 +1885,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      );
 	    });
 
+	    if (dots.length <= 1) return null;
+
 	    return _react2.default.createElement(
 	      'ul',
 	      { className: this.props.dotsClass, style: { display: 'block' } },
