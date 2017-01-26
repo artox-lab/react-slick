@@ -305,6 +305,9 @@ var EventHandlers = {
         trackRef: this.track
       }, this.props, this.state));
 
+
+      console.log(currentLeft);
+
       this.setState({
         trackStyle: getTrackAnimateCSS(assign({left: currentLeft}, this.props, this.state))
       });

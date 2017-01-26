@@ -825,6 +825,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        trackRef: this.track
 	      }, this.props, this.state));
 
+	      console.log(currentLeft);
+
 	      this.setState({
 	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state))
 	      });
