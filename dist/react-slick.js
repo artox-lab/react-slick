@@ -1389,9 +1389,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 
 	      callback = function callback() {
-	        //this.setState(nextStateChanges);
-	        _this.state.animating = false;
-	        _this.state.swipeLeft = null;
+	        _this.setState(nextStateChanges);
 	        if (_this.props.afterChange) {
 	          _this.props.afterChange(currentSlide);
 	        }

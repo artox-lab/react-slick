@@ -267,9 +267,7 @@ var helpers = {
       };
 
       callback = () => {
-        //this.setState(nextStateChanges);
-        this.state.animating = false;
-        this.state.swipeLeft = null;
+        this.setState(nextStateChanges);
         if (this.props.afterChange) {
           this.props.afterChange(currentSlide);
         }
