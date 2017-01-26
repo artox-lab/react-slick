@@ -660,7 +660,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.setState.swipeLeft = swipeLeft;
 	    this.setState.trackStyle = (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: swipeLeft }, this.props, this.state));
 
-	    var domNode = _reactDom2.default.findDOMNode(spec.trackRef);
+	    var domNode = _reactDom2.default.findDOMNode(this.track);
 	    domNode.style.transform = this.setState.trackStyle.transform;
 	    domNode.style.webkitTransform = this.setState.trackStyle.transform;
 	    domNode.style.transition = null;

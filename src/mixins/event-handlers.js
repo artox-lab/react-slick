@@ -156,7 +156,7 @@ var EventHandlers = {
     this.setState.swipeLeft = swipeLeft;
     this.setState.trackStyle = getTrackCSS(assign({left: swipeLeft}, this.props, this.state));
 
-    const domNode = ReactDOM.findDOMNode(spec.trackRef);
+    const domNode = ReactDOM.findDOMNode(this.track);
     domNode.style.transform =  this.setState.trackStyle.transform;
     domNode.style.webkitTransform =  this.setState.trackStyle.transform;
     domNode.style.transition =  null;
