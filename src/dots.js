@@ -52,7 +52,6 @@ export var Dots = React.createClass({
       );
     });
 
-    console.log('dots');
     if (dots.length <= 1) return null;
 
     return (
