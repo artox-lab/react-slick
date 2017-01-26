@@ -68,6 +68,8 @@ export var InnerSlider = React.createClass({
 
   // елси пришел только обдейт стилей трека но изменяем на живом доме для скорости и исключения пропедаливания
   shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate');
+    console.log(nextState.trackStyle);
     if (nextProps === this.props && nextState !== this.state && this.state.currentSlide === nextState.currentSlide &&
       nextState.trackStyle !==  this.state.trackStyle && !nextState.trackStyle.transition) {
       const domNode = this.track.getDOMNode();
