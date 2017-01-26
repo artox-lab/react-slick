@@ -656,16 +656,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      swipeLeft = curLeft + touchSwipeLength * positionOffset;
 	    }
 
-	    this.setState.touchObject = touchObject;
-	    this.setState.swipeLeft = swipeLeft;
-	    this.setState.trackStyle = (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: swipeLeft }, this.props, this.state));
-
-	    var domNode = _reactDom2.default.findDOMNode(this.track);
-	    domNode.style.transform = this.setState.trackStyle.transform;
-	    domNode.style.webkitTransform = this.setState.trackStyle.transform;
-	    domNode.style.transition = null;
-	    domNode.style.msTransform = null;
-	    domNode.style.WebkitTransition = null;
+	    this.setState({
+	      touchObject: touchObject,
+	      swipeLeft: swipeLeft,
+	      trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: swipeLeft }, this.props, this.state))
+	    });
 
 	    if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8) {
 	      return;

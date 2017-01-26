@@ -152,16 +152,11 @@ var EventHandlers = {
       swipeLeft = curLeft + touchSwipeLength * positionOffset;
     }
 
-    this.setState.touchObject = touchObject;
-    this.setState.swipeLeft = swipeLeft;
-    this.setState.trackStyle = getTrackCSS(assign({left: swipeLeft}, this.props, this.state));
-
-    const domNode = ReactDOM.findDOMNode(this.track);
-    domNode.style.transform =  this.setState.trackStyle.transform;
-    domNode.style.webkitTransform =  this.setState.trackStyle.transform;
-    domNode.style.transition =  null;
-    domNode.style.msTransform =  null;
-    domNode.style.WebkitTransition =  null;
+    this.setState({
+      touchObject: touchObject,
+      swipeLeft: swipeLeft,
+      trackStyle: getTrackCSS(assign({left: swipeLeft}, this.props, this.state))
+    });
 
     if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8)
       { return; }
