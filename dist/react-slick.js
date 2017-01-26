@@ -1885,6 +1885,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      );
 	    });
 
+	    console.log('dots');
 	    if (dots.length <= 1) return null;
 
 	    return _react2.default.createElement(
