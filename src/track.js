@@ -136,13 +136,12 @@ var renderSlides = function (spec) {
   } else {
     return preCloneSlides.concat(slides, postCloneSlides);
   }
+
+
 };
 
 export var Track = React.createClass({
   render: function () {
-    console.log('render track');
-    console.log(this.props.trackStyle);
-    console.log('-------------------------------------');
     var slides = renderSlides.call(this, this.props);
     return (
       <div className='slick-track' style={this.props.trackStyle}>

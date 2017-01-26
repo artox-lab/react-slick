@@ -65,23 +65,6 @@ export var InnerSlider = React.createClass({
       window.attachEvent('onresize', this.onWindowResized);
     }
   },
-
-  // елси пришел только обдейт стилей трека но изменяем на живом доме для скорости и исключения пропедаливания
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate');
-    console.log(nextState.trackStyle);
-    const domNode = this.track.getDOMNode();
-    domNode.style.transform = nextState.trackStyle.transform;
-    domNode.style.opacity = nextState.trackStyle.opacity;
-    domNode.style.transition = nextState.trackStyle.transition;
-    if (nextProps === this.props && nextState !== this.state &&
-      nextState.trackStyle !==  this.state.trackStyle) {
-
-
-      return false;
-    }
-    return true;
-  },
   componentWillUnmount: function componentWillUnmount() {
     if (this.animationEndCallback) {
       clearTimeout(this.animationEndCallback);
@@ -225,7 +208,7 @@ export var InnerSlider = React.createClass({
     }
 
     const listStyle = assign({}, verticalHeightStyle, centerPaddingStyle);
-   console.log('render slider');
+
     return (
       <div
         className={className}

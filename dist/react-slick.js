@@ -298,22 +298,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      window.attachEvent('onresize', this.onWindowResized);
 	    }
 	  },
-
-	  // елси пришел только обдейт стилей трека но изменяем на живом доме для скорости и исключения пропедаливания
-	  shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
-	    console.log('shouldComponentUpdate');
-	    console.log(nextState.trackStyle);
-	    var domNode = this.track.getDOMNode();
-	    domNode.style.transform = nextState.trackStyle.transform;
-	    domNode.style.opacity = nextState.trackStyle.opacity;
-	    domNode.style.transition = nextState.trackStyle.transition;
-	    if (nextProps === this.props && nextState !== this.state && nextState.trackStyle !== this.state.trackStyle) {
-
-	      return false;
-	    }
-	    return true;
-	  },
-
 	  componentWillUnmount: function componentWillUnmount() {
 	    if (this.animationEndCallback) {
 	      clearTimeout(this.animationEndCallback);
@@ -457,7 +441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var listStyle = (0, _objectAssign2.default)({}, verticalHeightStyle, centerPaddingStyle);
-	    console.log('render slider');
+
 	    return _react2.default.createElement(
 	      'div',
 	      {
@@ -613,7 +597,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.vertical && this.props.swipeToSlide && this.props.verticalSwiping) {
 	      e.preventDefault();
 	    }
-
 	    var swipeLeft;
 	    var curLeft, positionOffset;
 	    var touchObject = this.state.touchObject;
@@ -673,11 +656,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      swipeLeft = curLeft + touchSwipeLength * positionOffset;
 	    }
 
-	    this.setState({
-	      touchObject: touchObject,
-	      swipeLeft: swipeLeft,
-	      trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: swipeLeft }, this.props, this.state))
-	    });
+	    this.setState.touchObject = touchObject;
+	    this.setState.swipeLeft = swipeLeft;
+	    this.setState.trackStyle = (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: swipeLeft }, this.props, this.state));
+
+	    var domNode = _reactDom2.default.findDOMNode(spec.trackRef);
+	    domNode.style.transform = this.setState.trackStyle.transform;
+	    domNode.style.webkitTransform = this.setState.trackStyle.transform;
+	    domNode.style.transition = null;
+	    domNode.style.msTransform = null;
+	    domNode.style.WebkitTransition = null;
 
 	    if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8) {
 	      return;
@@ -825,8 +813,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        slideIndex: this.state.currentSlide,
 	        trackRef: this.track
 	      }, this.props, this.state));
-
-	      console.log(currentLeft);
 
 	      this.setState({
 	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state))
@@ -1400,7 +1386,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    } else {
 
+	      var nextStateChanges = {
+	        animating: false,
+	        currentSlide: currentSlide,
+	        trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state)),
+	        swipeLeft: null
+	      };
+
 	      callback = function callback() {
+	        //this.setState(nextStateChanges);
 	        _this.state.animating = false;
 	        _this.state.swipeLeft = null;
 	        if (_this.props.afterChange) {
@@ -1819,9 +1813,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  displayName: 'Track',
 
 	  render: function render() {
-	    console.log('render track');
-	    console.log(this.props.trackStyle);
-	    console.log('-------------------------------------');
 	    var slides = renderSlides.call(this, this.props);
 	    return _react2.default.createElement(
 	      'div',

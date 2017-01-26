@@ -259,7 +259,15 @@ var helpers = {
 
     } else {
 
+      var nextStateChanges = {
+        animating: false,
+        currentSlide: currentSlide,
+        trackStyle: getTrackCSS(assign({left: currentLeft}, this.props, this.state)),
+        swipeLeft: null
+      };
+
       callback = () => {
+        //this.setState(nextStateChanges);
         this.state.animating = false;
         this.state.swipeLeft = null;
         if (this.props.afterChange) {

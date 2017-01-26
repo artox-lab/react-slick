@@ -93,7 +93,6 @@ var EventHandlers = {
     if (this.props.vertical && this.props.swipeToSlide && this.props.verticalSwiping) {
       e.preventDefault();
     }
-
     var swipeLeft;
     var curLeft, positionOffset;
     var touchObject = this.state.touchObject;
@@ -153,11 +152,16 @@ var EventHandlers = {
       swipeLeft = curLeft + touchSwipeLength * positionOffset;
     }
 
-    this.setState({
-      touchObject: touchObject,
-      swipeLeft: swipeLeft,
-      trackStyle: getTrackCSS(assign({left: swipeLeft}, this.props, this.state))
-    });
+    this.setState.touchObject = touchObject;
+    this.setState.swipeLeft = swipeLeft;
+    this.setState.trackStyle = getTrackCSS(assign({left: swipeLeft}, this.props, this.state));
+
+    const domNode = ReactDOM.findDOMNode(spec.trackRef);
+    domNode.style.transform =  this.setState.trackStyle.transform;
+    domNode.style.webkitTransform =  this.setState.trackStyle.transform;
+    domNode.style.transition =  null;
+    domNode.style.msTransform =  null;
+    domNode.style.WebkitTransition =  null;
 
     if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8)
       { return; }
@@ -252,12 +256,9 @@ var EventHandlers = {
     var minSwipe = this.state.listWidth/this.props.touchThreshold;
     var swipeDirection = this.swipeDirection(touchObject);
 
-
-
     if (this.props.verticalSwiping) {
       minSwipe = this.state.listHeight/this.props.touchThreshold;
     }
-
 
     // reset the state of touch related state variables.
     this.setState({
@@ -304,9 +305,6 @@ var EventHandlers = {
         slideIndex: this.state.currentSlide,
         trackRef: this.track
       }, this.props, this.state));
-
-
-      console.log(currentLeft);
 
       this.setState({
         trackStyle: getTrackAnimateCSS(assign({left: currentLeft}, this.props, this.state))
