@@ -1399,15 +1399,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    } else {
 
-	      var nextStateChanges = {
-	        animating: false,
-	        currentSlide: currentSlide,
-	        trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state)),
-	        swipeLeft: null
-	      };
-
 	      callback = function callback() {
-	        _this.setState(nextStateChanges);
+	        _this.state.animating = false;
+	        _this.state.swipeLeft = null;
 	        if (_this.props.afterChange) {
 	          _this.props.afterChange(currentSlide);
 	        }
@@ -1419,7 +1413,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        currentSlide: currentSlide,
 	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: targetLeft }, this.props, this.state))
 	      }, function () {
-	        // this.animationEndCallback = setTimeout(callback, this.props.speed);
+	        this.animationEndCallback = setTimeout(callback, this.props.speed);
 	      });
 	    }
 

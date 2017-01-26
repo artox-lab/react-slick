@@ -259,15 +259,9 @@ var helpers = {
 
     } else {
 
-      var nextStateChanges = {
-        animating: false,
-        currentSlide: currentSlide,
-        trackStyle: getTrackCSS(assign({left: currentLeft}, this.props, this.state)),
-        swipeLeft: null
-      };
-
       callback = () => {
-        this.setState(nextStateChanges);
+        this.state.animating = false;
+        this.state.swipeLeft = null;
         if (this.props.afterChange) {
           this.props.afterChange(currentSlide);
         }
@@ -279,7 +273,7 @@ var helpers = {
         currentSlide: currentSlide,
         trackStyle: getTrackAnimateCSS(assign({left: targetLeft}, this.props, this.state))
       }, function () {
-       // this.animationEndCallback = setTimeout(callback, this.props.speed);
+        this.animationEndCallback = setTimeout(callback, this.props.speed);
       });
 
     }
