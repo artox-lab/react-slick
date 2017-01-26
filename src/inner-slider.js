@@ -221,7 +221,7 @@ export var InnerSlider = React.createClass({
     }
 
     const listStyle = assign({}, verticalHeightStyle, centerPaddingStyle);
-
+   console.log('render slider');
     return (
       <div
         className={className}

@@ -454,7 +454,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var listStyle = (0, _objectAssign2.default)({}, verticalHeightStyle, centerPaddingStyle);
-
+	    console.log('render slider');
 	    return _react2.default.createElement(
 	      'div',
 	      {
