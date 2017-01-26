@@ -299,16 +299,15 @@ var EventHandlers = {
 
       this.slideHandler(slideCount);
     } else {
-      this.slideHandler(this.state.currentSlide);
       // Adjust the track back to it's original position.
-      // var currentLeft = getTrackLeft(assign({
-      //   slideIndex: this.state.currentSlide,
-      //   trackRef: this.track
-      // }, this.props, this.state));
-      //
-      // this.setState({
-      //   trackStyle: getTrackAnimateCSS(assign({left: currentLeft}, this.props, this.state))
-      // });
+      var currentLeft = getTrackLeft(assign({
+        slideIndex: this.state.currentSlide,
+        trackRef: this.track
+      }, this.props, this.state));
+
+      this.setState({
+        trackStyle: getTrackAnimateCSS(assign({left: currentLeft}, this.props, this.state))
+      });
     }
   },
   onClick: function(e) {
