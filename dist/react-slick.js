@@ -815,7 +815,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  onClick: function onClick(e) {
-	    if (!this.isSwipe) {
+	    if (this.isSwipe) {
 	      e.preventDefault();
 	    }
 	  },

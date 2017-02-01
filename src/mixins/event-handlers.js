@@ -307,7 +307,7 @@ var EventHandlers = {
     }
   },
   onClick: function(e) {
-    if (!this.isSwipe) {
+    if (this.isSwipe) {
       e.preventDefault();
     }
   },
