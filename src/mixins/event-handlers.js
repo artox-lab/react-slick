@@ -108,8 +108,10 @@ var EventHandlers = {
     if (this.props.verticalSwiping) {
       touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
     }
-     console.log(touchObject.swipeLength);
+
     if (touchObject.swipeLength < 10) {
+      this.isSwipe = false;
+    } else {
       this.isSwipe = true;
     }
 
@@ -305,7 +307,7 @@ var EventHandlers = {
     }
   },
   onClick: function(e) {
-    if (this.isSwipe) {
+    if (!this.isSwipe) {
       e.preventDefault();
     }
   },

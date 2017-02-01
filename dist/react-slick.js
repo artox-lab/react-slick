@@ -612,8 +612,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.verticalSwiping) {
 	      touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
 	    }
-	    console.log(touchObject.swipeLength);
+
 	    if (touchObject.swipeLength < 10) {
+	      this.isSwipe = false;
+	    } else {
 	      this.isSwipe = true;
 	    }
 
@@ -813,7 +815,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  onClick: function onClick(e) {
-	    if (this.isSwipe) {
+	    if (!this.isSwipe) {
 	      e.preventDefault();
 	    }
 	  },
