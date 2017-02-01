@@ -612,7 +612,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.props.verticalSwiping) {
 	      touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
 	    }
-
+	    console.log(touchObject.swipeLength);
 	    if (touchObject.swipeLength < 10) {
 	      this.isSwipe = true;
 	    }
