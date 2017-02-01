@@ -601,8 +601,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var curLeft, positionOffset;
 	    var touchObject = this.state.touchObject;
 
-	    this.isSwipe = true;
-
 	    curLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
 	      slideIndex: this.state.currentSlide,
 	      trackRef: this.track

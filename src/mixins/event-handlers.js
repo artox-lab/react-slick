@@ -97,8 +97,6 @@ var EventHandlers = {
     var curLeft, positionOffset;
     var touchObject = this.state.touchObject;
 
-    this.isSwipe = true;
-
     curLeft = getTrackLeft(assign({
       slideIndex: this.state.currentSlide,
       trackRef: this.track
